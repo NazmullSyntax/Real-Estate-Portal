@@ -1,0 +1,20 @@
+{
+  "name": "real-estate-portal",
+  "version": "1.0.0",
+  "description": "Bproperty Clone - Real Estate Portal with filters, map view, and inquiry forms",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx live-server --port=3000 --open=/index.html"
+  },
+  "keywords": [
+    "real-estate",
+    "property",
+    "listing",
+    "map",
+    "leaflet",
+    "javascript"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
