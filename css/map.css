@@ -1,0 +1,12 @@
+.map-section {
+    position: sticky;
+    top: 90px;
+    height: fit-content;
+}
+
+#map {
+    height: 600px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
