@@ -1,218 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Real Estate Portal - Browse homes, apartments, and investment properties."
-    />
-    <title>Real Estate Portal</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find your dream property - Real estate listings with filters, map view, and inquiry forms">
+    <title>Bproperty Clone - Real Estate Portal</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-      crossorigin=""
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/filters.css" />
-    <link rel="stylesheet" href="css/listings.css" />
-    <link rel="stylesheet" href="css/map.css" />
-    <link rel="stylesheet" href="css/modal.css" />
-    <link rel="stylesheet" href="css/toast.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
-  </head>
-  <body>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- Modular CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/filters.css">
+    <link rel="stylesheet" href="css/listings.css">
+    <link rel="stylesheet" href="css/map.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/toast.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- HEADER -->
     <header class="site-header">
-      <div class="container header-inner">
-        <div class="brand-block" aria-label="Real Estate Portal home">
-          <div class="brand-mark">B</div>
-          <div>
-            <p class="brand-name">Bproperty</p>
-            <span class="brand-tag">Portal</span>
-          </div>
+        <div class="header-container">
+            <div class="logo">
+                🏠 Bproperty<span>Clone</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#" data-scroll="listings">Buy</a></li>
+                    <li><a href="#" data-scroll="listings">Rent</a></li>
+                    <li><a href="#" data-scroll="listings">Sell</a></li>
+                    <li><a href="#" id="contactLink">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button class="btn btn-outline" id="loginBtn">Login</button>
+                <button class="btn btn-primary" id="signupBtn">Sign Up</button>
+            </div>
         </div>
-
-        <nav class="main-nav" aria-label="Primary navigation">
-          <a href="#">Buy</a>
-          <a href="#">Rent</a>
-          <a href="#">New Projects</a>
-          <a href="#">Agents</a>
-          <a href="#">Blog</a>
-        </nav>
-
-        <div class="header-actions">
-          <button class="btn btn-ghost" type="button">Save Search</button>
-          <button class="btn btn-primary" type="button">List Property</button>
-        </div>
-      </div>
     </header>
 
-    <main class="page-shell">
-      <section class="hero" aria-label="Property search hero">
-        <div class="container hero-content">
-          <div class="hero-copy">
-            <span class="eyebrow">Discover your next address</span>
-            <h1>Find the right property for your lifestyle.</h1>
-            <p>
-              Explore homes, apartments, and investment opportunities in the
-              most desirable neighborhoods.
-            </p>
-          </div>
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Find Your Dream Property</h1>
+        <p>Discover thousands of properties for sale and rent across the country</p>
+    </section>
 
-          <form class="hero-search" id="hero-search-form" aria-label="Quick search">
-            <div class="field-group">
-              <label for="hero-location">Location</label>
-              <input
-                id="hero-location"
-                name="location"
-                type="text"
-                placeholder="Search by city or area"
-              />
-            </div>
-
-            <div class="field-group">
-              <label for="hero-property-type">Type</label>
-              <select id="hero-property-type" name="propertyType">
-                <option value="">Any type</option>
-                <option value="apartment">Apartment</option>
-                <option value="villa">Villa</option>
-                <option value="townhouse">Townhouse</option>
-                <option value="penthouse">Penthouse</option>
-              </select>
-            </div>
-
-            <button type="submit" class="btn btn-primary search-btn">Search</button>
-          </form>
-        </div>
-      </section>
-
-      <div class="container content-layout">
-        <aside class="filters-panel" id="filters-panel" aria-label="Property filters">
-          <div class="panel-head">
-            <h2>Filters</h2>
-            <button type="button" class="link-btn" id="reset-filters">Reset</button>
-          </div>
-
-          <div class="filter-group">
-            <label for="filter-purpose">Purpose</label>
-            <select id="filter-purpose" name="purpose">
-              <option value="">Any</option>
-              <option value="sale">Buy</option>
-              <option value="rent">Rent</option>
-            </select>
-          </div>
-
-          <div class="filter-group">
-            <label for="filter-type">Property Type</label>
-            <select id="filter-type" name="type">
-              <option value="">Any</option>
-              <option value="apartment">Apartment</option>
-              <option value="villa">Villa</option>
-              <option value="townhouse">Townhouse</option>
-              <option value="penthouse">Penthouse</option>
-            </select>
-          </div>
-
-          <div class="filter-group">
-            <label for="filter-location">Location</label>
-            <select id="filter-location" name="location">
-              <option value="">Any city</option>
-              <option value="Dubai Marina">Dubai Marina</option>
-              <option value="Downtown Dubai">Downtown Dubai</option>
-              <option value="Business Bay">Business Bay</option>
-              <option value="Jumeirah">Jumeirah</option>
-            </select>
-          </div>
-
-          <div class="filter-group">
-            <label for="filter-bedrooms">Bedrooms</label>
-            <select id="filter-bedrooms" name="bedrooms">
-              <option value="">Any</option>
-              <option value="1">1+</option>
-              <option value="2">2+</option>
-              <option value="3">3+</option>
-              <option value="4">4+</option>
-            </select>
-          </div>
-
-          <div class="filter-group">
-            <label for="filter-price-min">Min Price</label>
-            <input id="filter-price-min" type="number" min="0" placeholder="No min" />
-          </div>
-
-          <div class="filter-group">
-            <label for="filter-price-max">Max Price</label>
-            <input id="filter-price-max" type="number" min="0" placeholder="No max" />
-          </div>
-        </aside>
-
-        <section class="results-panel" aria-label="Property listings and map">
-          <div class="results-toolbar">
-            <div>
-              <p class="section-kicker">Updated today</p>
-              <h2>Available Properties</h2>
-            </div>
-
-            <div class="toolbar-actions">
-              <label class="sort-control" for="sort-by">
-                <span>Sort by</span>
-                <select id="sort-by" name="sortBy">
-                  <option value="featured">Featured</option>
-                  <option value="price-low">Price: Low to High</option>
-                  <option value="price-high">Price: High to Low</option>
-                  <option value="newest">Newest</option>
+    <!-- FILTERS -->
+    <section class="search-section">
+        <div class="filter-grid">
+            <div class="filter-group">
+                <label for="filterType">Property Type</label>
+                <select id="filterType">
+                    <option value="all">All Types</option>
+                    <option value="Apartment">Apartment</option>
+                    <option value="House">House</option>
+                    <option value="Villa">Villa</option>
+                    <option value="Condo">Condo</option>
+                    <option value="Studio">Studio</option>
                 </select>
-              </label>
             </div>
-          </div>
+            <div class="filter-group">
+                <label for="filterPurpose">Purpose</label>
+                <select id="filterPurpose">
+                    <option value="all">Buy or Rent</option>
+                    <option value="sale">For Sale</option>
+                    <option value="rent">For Rent</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filterBedrooms">Bedrooms</label>
+                <select id="filterBedrooms">
+                    <option value="all">Any</option>
+                    <option value="1">1+</option>
+                    <option value="2">2+</option>
+                    <option value="3">3+</option>
+                    <option value="4">4+</option>
+                    <option value="5">5+</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filterPrice">Max Price ($)</label>
+                <input type="number" id="filterPrice" placeholder="e.g. 500000">
+            </div>
+            <div class="filter-group">
+                <label for="filterLocation">Location</label>
+                <select id="filterLocation">
+                    <option value="all">All Locations</option>
+                    <option value="New York">New York</option>
+                    <option value="Los Angeles">Los Angeles</option>
+                    <option value="Miami">Miami</option>
+                    <option value="Chicago">Chicago</option>
+                    <option value="Houston">Houston</option>
+                    <option value="Seattle">Seattle</option>
+                </select>
+            </div>
+        </div>
+        <div class="search-actions">
+            <button class="btn btn-primary" id="searchBtn">🔍 Search Properties</button>
+            <button class="btn btn-outline-dark" id="resetBtn">Reset Filters</button>
+        </div>
+    </section>
 
-          <div class="view-toggle" aria-label="View toggle">
-            <button type="button" class="view-btn active" data-view="list">List</button>
-            <button type="button" class="view-btn" data-view="map">Map</button>
-          </div>
-
-          <div id="listings-view" class="listings-view">
-            <div id="listing-grid" class="listing-grid" aria-live="polite"></div>
-          </div>
-
-          <div id="map-view" class="map-view hidden" aria-label="Map view">
-            <div id="map" aria-label="Property map"></div>
-          </div>
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <section class="listings-section" id="listingsSection">
+            <h2>📋 Property Listings <span id="listingCount" class="count-badge"></span></h2>
+            <div class="listings-grid" id="listingsGrid"></div>
         </section>
-      </div>
+
+        <section class="map-section">
+            <h2>🗺️ Map View</h2>
+            <div id="map"></div>
+        </section>
     </main>
 
-    <div id="property-modal" class="modal hidden" aria-hidden="true">
-      <div class="modal-backdrop" data-close-modal="true"></div>
-      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <button type="button" class="modal-close" aria-label="Close dialog">×</button>
-        <div id="modal-content"></div>
-      </div>
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modalTitle">Property Details</h3>
+                <button class="close-btn" id="closeModalBtn">✕</button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
     </div>
 
-    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
 
-    <script
-      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-      crossorigin=""
-    ></script>
-    <script src="js/data.js"></script>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <p>© 2024 Bproperty Clone. All rights reserved. | Real Estate Portal Demo</p>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Modular JS -->
     <script src="js/utils.js"></script>
-    <script src="js/filters.js"></script>
+    <script src="js/data.js"></script>
     <script src="js/listings.js"></script>
+    <script src="js/filters.js"></script>
     <script src="js/map.js"></script>
-    <script src="js/modal.js"></script>
     <script src="js/inquiry.js"></script>
+    <script src="js/modal.js"></script>
     <script src="js/main.js"></script>
-  </body>
+</body>
 </html>
