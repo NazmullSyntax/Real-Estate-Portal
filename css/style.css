@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary-dark: #1a3c6e;
+    --primary: #2a5f9e;
+    --accent: #ff6b35;
+    --accent-hover: #e55a2b;
+    --bg: #f5f7fa;
+    --text: #333;
+    --muted: #888;
+    --border: #e0e6ed;
+    --white: #ffffff;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+}
+
+.main-content {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.btn {
+    padding: 0.6rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--primary-dark);
+}
+
+.btn-outline-dark {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline-dark:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.site-footer {
+    background: var(--primary-dark);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+.site-footer p {
+    opacity: 0.8;
+}
