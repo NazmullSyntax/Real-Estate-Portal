@@ -60,7 +60,8 @@ const Filters = {
         // Re-render listings
         Listings.render(filtered);
 
-        // (Map sync will be added on Day 4)
+        // Sync map markers
+        MapView.updateMarkers(filtered);
 
         // Update visual state of filter card
         this.updateActiveIndicator(filtered.length);
